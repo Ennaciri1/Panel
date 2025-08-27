@@ -1,0 +1,76 @@
+:root {
+  --card-bg: #ffffff;
+  --card-radius: 18px;
+  --card-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  --brand: #97051D;             /* bordeaux labels */
+  --img-accent: #2ea7ff;        /* bordure bleue de l'image */
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Media (image) */
+.card__media {
+  padding: 10px; /* espace pour voir la bordure bleue arrondie */
+}
+.card__media img {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  border: 3px solid var(--img-accent);
+  object-fit: cover;
+  max-height: 220px; /* mobile */
+}
+
+/* Corps */
+.card__body {
+  padding: 16px 18px 20px;
+}
+
+.card__title {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 8px 0 14px;
+}
+
+/* Grid de paires label / valeur */
+.card__grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: une rangée par ligne */
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.card__row {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: baseline;
+}
+
+.card__label {
+  color: var(--brand);
+  font-weight: 700;
+}
+.card__value {
+  text-align: right;
+  font-weight: 500;
+}
+
+/* Actions */
+.card__actions {
+  margin-top: 8px;
+}
+
+/* Desktop / tablettes */
+@media (min-width: 520px) {
+  .card__media img { max-height: 260px; }
+  .card__title { font-size: 1.25rem; margin: 10px 0 16px; }
+  .card__grid { gap: 10px; }
+  .card__row { grid-template-columns: 1fr 1fr; }
+}

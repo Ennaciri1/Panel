@@ -1,0 +1,74 @@
+/* Palette & variables (peuvent être surchargées via :root) */
+:root {
+  --btn-bg: #97051D;              /* Couleur principale demandée */
+  --btn-bg-hover: #7f0418;        /* Légèrement plus sombre */
+  --btn-bg-active: #6b0415;       /* Encore plus sombre au clic */
+  --btn-text: #ffffff;            /* Texte */
+  --btn-radius: 14px;             /* Rayon arrondi (style pill) */
+  --btn-shadow: 0 1px 0 rgba(0,0,0,0.15), 0 6px 14px rgba(0,0,0,0.08);
+  --btn-focus: 0 0 0 3px rgba(32, 148, 243, 0.65); /* Halo accessibilité */
+  --btn-letter-spacing: 0.2px;
+}
+
+/* Base */
+.btn {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border-radius: var(--btn-radius);
+  font-weight: 600;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  letter-spacing: var(--btn-letter-spacing);
+  box-shadow: var(--btn-shadow);
+  transition: background-color 120ms ease, transform 80ms ease, box-shadow 120ms ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Tailles */
+.btn--sm { padding: 10px 18px; font-size: 0.92rem; border-radius: 12px; }
+.btn--md { padding: 12px 22px; font-size: 1rem;    border-radius: 13px; }
+.btn--lg { padding: 14px 28px; font-size: 1.075rem; border-radius: 14px; }
+.btn--xl { padding: 18px 36px; font-size: 1.25rem;  border-radius: 16px; }
+
+/* États */
+.btn:hover { background: var(--btn-bg-hover); }
+.btn:active { background: var(--btn-bg-active); transform: translateY(1px); }
+.btn:focus-visible { outline: none; box-shadow: var(--btn-focus), var(--btn-shadow); }
+
+.btn.is-disabled,
+.btn[aria-disabled="true"],
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Icônes optionnelles */
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+}
+.btn__icon--left { margin-left: 2px; }
+.btn__icon--right { margin-right: 2px; }
+
+/* Pleine largeur (desktop si demandé) */
+.btn--full { width: 100%; }
+
+/* Mobile-first: le bouton prend toute la largeur par défaut sur petits écrans */
+@media (max-width: 480px) {
+  .btn { width: 100%; }
+  .btn--xl { font-size: 1.2rem; padding: 16px 30px; }
+}
+
+/* Option: forcer coins très arrondis (style pilule complète)
+   Utilise en ajoutant .rounded-full à className si tu veux */
+.rounded-full { border-radius: 999px !important; }
