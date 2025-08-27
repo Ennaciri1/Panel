@@ -1,5 +1,6 @@
+// src/components/ui/Button/Button.jsx
 import React from "react";
-import "./buttons.css";
+import "./Button.css";
 
 /**
  * Bouton réutilisable
@@ -16,7 +17,7 @@ import "./buttons.css";
  * - className: string (classes sup)
  * - leftIcon / rightIcon: ReactNode (optionnel)
  */
-export default function Buttons({
+export default function Button({
   children,
   size = "lg",
   fullWidth = false,
@@ -46,7 +47,13 @@ export default function Buttons({
         className={baseClass}
         href={href}
         aria-disabled={disabled ? "true" : undefined}
-        onClick={(e) => disabled && e.preventDefault()}
+        onClick={(e) => {
+          if (disabled) {
+            e.preventDefault();
+          } else if (onClick) {
+            onClick(e);
+          }
+        }}
         {...rest}
       >
         {leftIcon ? <span className="btn__icon btn__icon--left">{leftIcon}</span> : null}
