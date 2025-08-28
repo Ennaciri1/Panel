@@ -1,0 +1,251 @@
+/* src/components/layout/Sidebar.css */
+
+.sidebar-container {
+  position: fixed;
+  inset-y: 0;
+  left: 0;
+  width: 16rem; /* 256px */
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+  border-right: 1px solid var(--gray-200);
+  z-index: 40;
+}
+
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Section logo */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.sidebar-logo img {
+  height: 3rem;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Navigation principale */
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem;
+  space: 0.25rem 0;
+}
+
+.nav-section {
+  margin-bottom: 2rem;
+}
+
+.nav-section-title {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  padding: 0 0.75rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav-item {
+  /* Style de base pour les éléments de navigation */
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-700);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.nav-link:hover {
+  background: var(--gray-100);
+  color: var(--brand-primary);
+  transform: translateX(2px);
+}
+
+.nav-link.active {
+  background: var(--brand-light);
+  color: var(--brand-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 1.5rem;
+  background: var(--brand-primary);
+  border-radius: 0 2px 2px 0;
+}
+
+.nav-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.nav-link span {
+  truncate: true;
+}
+
+/* Séparateur */
+.nav-divider {
+  height: 1px;
+  background: var(--gray-200);
+  margin: 1rem;
+}
+
+/* Section secondaire */
+.sidebar-secondary {
+  padding: 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.sidebar-secondary .nav-list {
+  gap: 0.125rem;
+}
+
+.sidebar-secondary .nav-link {
+  font-size: 0.8125rem;
+  padding: 0.625rem 0.75rem;
+  color: var(--gray-600);
+}
+
+/* Footer */
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+
+.sidebar-footer-text {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  text-align: center;
+  margin: 0;
+}
+
+/* Badge de notification */
+.nav-badge {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--error);
+  color: white;
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-bold);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-full);
+  min-width: 1.125rem;
+  height: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar-container {
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+  }
+  
+  .sidebar-container.is-open {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-container {
+    width: 100%;
+    max-width: 20rem;
+  }
+  
+  .sidebar-logo {
+    padding: 1rem;
+  }
+  
+  .nav-link {
+    padding: 1rem 0.75rem;
+    font-size: 1rem;
+  }
+  
+  .nav-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1rem;
+  }
+}
+
+/* Animation d'entrée */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.sidebar-container.animate-in {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+/* États de focus pour l'accessibilité */
+.nav-link:focus {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: -2px;
+}
+
+.nav-link:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Mode sombre (optionnel) */
+@media (prefers-color-scheme: dark) {
+  .sidebar-container {
+    background: var(--gray-900);
+    border-right-color: var(--gray-700);
+  }
+  
+  .nav-link {
+    color: var(--gray-300);
+  }
+  
+  .nav-link:hover {
+    background: var(--gray-800);
+    color: var(--brand-primary);
+  }
+  
+  .nav-link.active {
+    background: rgba(151, 5, 29, 0.2);
+    color: var(--brand-primary);
+  }
+}

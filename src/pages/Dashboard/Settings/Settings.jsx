@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Input from "../../../components/ui/Input/Input";
 import Button from "../../../components/ui/Button/Button";
 import { useAuth } from "../../../hooks/useAuth";
-
+import './Settings.css';
 export default function Settings() {
   const { user, logout } = useAuth();
   const [formData, setFormData] = useState({

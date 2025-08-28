@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import Button from "../../../components/ui/Button/Button";
 import Input from "../../../components/ui/Input/Input";
-
+import './Analytics.css';
 // Données mock pour les graphiques
+
+
 const revenueData = [
   { month: "Jan", revenue: 2400, bookings: 12 },
   { month: "Feb", revenue: 3200, bookings: 16 },

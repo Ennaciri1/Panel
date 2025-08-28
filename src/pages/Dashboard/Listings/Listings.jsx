@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Button from "../../../components/ui/Button/Button";
 import Input from "../../../components/ui/Input/Input";
 import Card from "../../../components/ui/Card/Card";
+import './Listings.css';
 
 const mockListings = [
   {

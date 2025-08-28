@@ -1,7 +1,7 @@
 // src/pages/Dashboard/Home/Home.jsx
 import React from "react";
 import Card from "../../../components/ui/Card/Card";
-
+import './Home.css';
 const mockListings = [
   {
     id: 1,

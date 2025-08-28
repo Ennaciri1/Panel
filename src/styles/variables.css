@@ -1,0 +1,34 @@
+:root {
+  /* Couleurs principales */
+  --brand-primary: #97051D;
+  --brand-secondary: #7f0418;
+  --brand-light: rgba(151, 5, 29, 0.08);
+  
+  /* Couleurs de statut */
+  --status-pending: #f59e0b;
+  --status-confirmed: #10b981;
+  --status-cancelled: #ef4444;
+  --status-completed: #3b82f6;
+  
+  /* Espacements */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  
+  /* Typography */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Bordures */
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  
+  /* Ombres */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}

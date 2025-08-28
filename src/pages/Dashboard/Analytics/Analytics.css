@@ -1,0 +1,689 @@
+/* src/pages/Dashboard/Analytics/Analytics.css */
+
+.analytics-container {
+  padding: 2rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* En-tête de la page Analytics */
+.analytics-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.analytics-header-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.analytics-title {
+  font-size: 2.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-900);
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.analytics-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.analytics-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.time-selector {
+  min-width: 200px;
+}
+
+.export-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius);
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.export-button:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.export-button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Grille des KPI */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-100);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.kpi-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.kpi-card--revenue::before {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.kpi-card--bookings::before {
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+}
+
+.kpi-card--average::before {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+}
+
+.kpi-card--occupancy::before {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.kpi-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kpi-info {
+  flex: 1;
+}
+
+.kpi-label {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-600);
+  margin: 0 0 0.5rem;
+}
+
+.kpi-value {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-900);
+  margin: 0 0 0.5rem;
+  line-height: 1;
+}
+
+.kpi-change {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.kpi-change--positive {
+  color: var(--success);
+}
+
+.kpi-change--negative {
+  color: var(--error);
+}
+
+.kpi-change svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.kpi-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.kpi-icon--revenue {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.kpi-icon--bookings {
+  background: rgba(59, 130, 246, 0.1);
+  color: #1d4ed8;
+}
+
+.kpi-icon--average {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7c3aed;
+}
+
+.kpi-icon--occupancy {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+.kpi-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Grille des graphiques */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-100);
+}
+
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.chart-title {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.chart-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart-toggle {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  color: var(--gray-600);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.chart-toggle:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.chart-toggle.active {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: var(--white);
+}
+
+/* Conteneur de graphique personnalisé */
+.chart-container {
+  height: 16rem;
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  padding: 1rem;
+  position: relative;
+}
+
+.chart-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 3rem;
+}
+
+.chart-bar-fill {
+  background: var(--brand-primary);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  width: 2rem;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  position: relative;
+}
+
+.chart-bar-fill:hover {
+  background: var(--brand-secondary);
+  transform: scaleY(1.05);
+}
+
+.chart-bar-fill::before {
+  content: attr(data-value);
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gray-900);
+  color: var(--white);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+}
+
+.chart-bar-fill:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.chart-bar-label {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  margin-top: 0.5rem;
+  font-weight: var(--font-weight-medium);
+}
+
+/* Performance des propriétés */
+.property-performance {
+  grid-column: span 2;
+}
+
+.performance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.performance-item {
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  padding: 1rem;
+  transition: background var(--transition-fast);
+}
+
+.performance-item:hover {
+  background: var(--gray-100);
+}
+
+.performance-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.property-name {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-900);
+  margin: 0 0 0.25rem;
+  line-height: 1.3;
+}
+
+.property-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--gray-600);
+}
+
+.star-icon {
+  color: #f59e0b;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.performance-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.metric-value {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-900);
+  margin: 0.125rem 0 0;
+}
+
+.occupancy-bar {
+  width: 100%;
+  height: 0.5rem;
+  background: var(--gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.occupancy-fill {
+  height: 100%;
+  background: var(--brand-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-base);
+}
+
+/* Top performer */
+.top-performer {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-100);
+  text-align: center;
+}
+
+.performer-icon {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.performer-icon svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--white);
+}
+
+.performer-name {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-900);
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.performer-revenue {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--brand-primary);
+  margin: 0 0 0.25rem;
+}
+
+.performer-label {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0 0 1rem;
+}
+
+.performer-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.performer-stat {
+  text-align: center;
+}
+
+.performer-stat-value {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.performer-stat-label {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  margin: 0.125rem 0 0;
+}
+
+/* Activité récente */
+.recent-activity {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-100);
+  grid-column: span 2;
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.activity-title {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.activity-list {
+  max-height: 20rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  transition: background var(--transition-fast);
+}
+
+.activity-item:hover {
+  background: var(--gray-100);
+}
+
+.activity-emoji {
+  font-size: 1.125rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.activity-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-description {
+  font-size: 0.875rem;
+  color: var(--gray-900);
+  margin: 0 0 0.25rem;
+  line-height: 1.4;
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .analytics-container {
+    padding: 1.5rem;
+  }
+  
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .property-performance {
+    grid-column: span 1;
+  }
+  
+  .recent-activity {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics-container {
+    padding: 1rem;
+  }
+  
+  .analytics-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .analytics-title {
+    font-size: 1.875rem;
+  }
+  
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .chart-container {
+    height: 12rem;
+  }
+  
+  .performance-metrics {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .performer-stats {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .kpi-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .kpi-icon {
+    order: -1;
+  }
+  
+  .charts-grid {
+    gap: 1rem;
+  }
+  
+  .chart-controls {
+    flex-wrap: wrap;
+  }
+}
+
+/* Animations */
+.analytics-container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.kpi-card {
+  animation: slideUp 0.4s ease-out;
+  animation-fill-mode: both;
+}
+
+.kpi-card:nth-child(1) { animation-delay: 0.1s; }
+.kpi-card:nth-child(2) { animation-delay: 0.2s; }
+.kpi-card:nth-child(3) { animation-delay: 0.3s; }
+.kpi-card:nth-child(4) { animation-delay: 0.4s; }
+
+.chart-bar-fill {
+  animation: growUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes growUp {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--bar-height, 100%);
+  }
+}
+
+/* États de chargement */
+.analytics-skeleton .kpi-card,
+.analytics-skeleton .chart-card {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-bar {
+  background: var(--gray-200);
+  border-radius: var(--radius-sm);
+  width: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-text {
+  background: var(--gray-200);
+  border-radius: var(--radius-sm);
+  height: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-text.short {
+  width: 60%;
+}
